@@ -1,0 +1,80 @@
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+    ThirdWindow:
+
+<FirstWindow>:
+    name: "first"
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        FloatLayout:
+            Image:
+                source: "assets/vct-2.webp"
+                allow_stretch: True
+                keep_ratio: True
+                size_hint_y: None
+                size_hint_x: None
+                width: self.parent.width
+                height: self.parent.width/self.image_ratio
+            Label:
+                text: "Inter-Aprende"
+                size: '.5','.5'
+                pos_hint:{'center_x':.5,'center_y':.7}
+                font_size: '50sp'
+                bold: True
+                italic: True
+                outline_color: (16/255.0, 140/255.0, 47/255.0, 1)
+                outline_width: 3
+            Label:
+                text: "version 0.0.2-alpha"
+                size: '.5','.5'
+                pos_hint:{'center_x':.7,'center_y':.55}
+                font_size: '15sp'
+                bold: True
+                italic: True
+                outline_color: (16/255.0, 140/255.0, 47/255.0, 1)
+                outline_width: 2
+            Button:
+                text:'Iniciar'
+                background_color: 0 , 0 , 1 , 1
+                pos_hint: {'x':.33,'y':.31}
+                size_hint: '.18', '.12'
+                on_release: app.root.current = "second"
+            Button:
+                text:'Creditos'
+                pos_hint: {'x':.53,'y':.31}
+                size_hint: '.18', '.12'
+                on_release: app.root.current = "third"
+
+<SecondWindow>:
+    name: "second"
+
+<ThirdWindow>
+    name: "third"
+    BoxLayout:
+        FloatLayout:
+            Label:
+                text: "Elaborado por:"
+                font_size: '40sp'
+                pos_hint:{'center_x':.5,'center_y':.85}
+                bold: True
+                italic: True
+            Label:
+                text: "Hernández Luis / V-26.353.427"
+                font_size: '32sp'
+                pos_hint:{'center_x':.5,'center_y':.68}
+            Label:
+                text: "Vargas Maibelyn / V-29.876.979"
+                font_size: '32sp'
+                pos_hint:{'center_x':.5,'center_y':.56}   
+            Button:
+                text: "Volver Atras"
+                pos_hint: {'center_x':.5,'center_y':.3}
+                size_hint: '.18', '.12'
+                on_release: app.root.current = "first" 
+

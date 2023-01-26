@@ -216,12 +216,12 @@ class SecondWindow(Screen):
         self.painter.set_val(v='0.2',h='1',s='1') ## Green
 
     def purple_canvas(self, obj):
-        self.painter.set_val(v='0.847',h='1',s='1') ## Pruple
+        self.painter.set_val(v='0.847',h='1',s='1') ## Purple
 
 class ThirdWindow(Screen):
     pass
 
-file_kv = Builder.load_file('window.kv')
+file_kv = Builder.load_file('main.kv')
 
 class MainApp(App):
     def build(self):       

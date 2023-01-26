@@ -61,7 +61,8 @@ class SecondWindow(Screen):
 
     def __init__(self, **kw):
         super(SecondWindow, self).__init__(**kw)
-        self.painter = MyPaintWidget()      
+        self.painter = MyPaintWidget()  
+        self.ver_life = self.painter.wline
         ## Label
         self.title_label = Label(
             text='- Dibujo Libre -',
@@ -82,13 +83,18 @@ class SecondWindow(Screen):
         ## Size button
         ### More Size
         self.more_size = Button(text="Aumentar",
-                    pos_hint={"center_x": .25, "center_y": .95},
+                    pos_hint={"center_x": .75, "center_y": .95},
                     size_hint = (.1,.068)
                 )
         self.more_size.bind(on_press=self.more_line)
         ### Less Size
+        self.less_size_off = Button(text="Disminuir",
+                        pos_hint={"center_x": .25, "center_y": .95},
+                        size_hint = (.1,.068),
+                        disabled = True
+                    )
         self.less_size = Button(text="Disminuir",
-                    pos_hint={"center_x": .75, "center_y": .95},
+                    pos_hint={"center_x": .25, "center_y": .95},
                     size_hint = (.1,.068)
                 )
         self.less_size.bind(on_press=self.less_line)
@@ -150,14 +156,23 @@ class SecondWindow(Screen):
         self.add_widget(self.painter)
         self.add_widget(self.show_b)
         self.add_widget(self.title_label)
-        self.add_widget(self.more_size)
-        self.add_widget(self.less_size)
+        self.add_widget(self.more_size)       
 
     def more_line(self, obj):
         self.painter.set_line()
+        self.ver_life = self.painter.wline
+        if self.ver_life > 1:
+            self.remove_widget(self.less_size)
+            self.remove_widget(self.less_size_off)
+            self.add_widget(self.less_size)
 
     def less_line(self, obj):
         self.painter.set_d_line()
+        self.ver_life = self.painter.wline
+        if self.ver_life == 1:
+            self.remove_widget(self.less_size)
+            self.remove_widget(self.less_size_off)
+            self.add_widget(self.less_size_off)
 
     def hidden_bs(self, obj):
         ## Buttons

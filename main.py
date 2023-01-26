@@ -50,9 +50,13 @@ class MyPaintWidget(Widget):
                 touch.ud['line'] = Line(points=(touch.x, touch.y))
             else:
                 touch.ud['line'] = Line(points=(touch.x, touch.y), width=(self.wline))
+        return super(MyPaintWidget, self).on_touch_down(touch)
 
     def on_touch_move(self, touch):
-        touch.ud['line'].points += [touch.x, touch.y]
+        value = 'line'
+        if value in touch.ud:
+            touch.ud['line'].points += [touch.x, touch.y]
+        return super(MyPaintWidget, self).on_touch_move(touch)
 
 class FirstWindow(Screen):
     pass

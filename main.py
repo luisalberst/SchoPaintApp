@@ -20,15 +20,23 @@ class WindowManager(ScreenManager):
 
 class MyPaintWidget(Widget):  
 
-    def __init__(self, v = 'none', **kwargs):
+    def __init__(self, v = 'none', wline = 1, **kwargs):
         super(MyPaintWidget, self).__init__(**kwargs) 
         self.v = v
+        self.wline = wline
 
     def set_val(self, v = 'none', h = 'none', s = 'none'):
         self.v = v
         self.h = h
         self.s = s
     
+    def set_line(self):
+        self.wline += 0.5
+
+    def set_d_line(self):
+        if self.wline != 1:
+            self.wline -= 0.5
+
     def on_touch_down(self, touch):   
         if self.v == 'none':
             color = (random(), 1, 1)
@@ -38,11 +46,13 @@ class MyPaintWidget(Widget):
             Color(*color, mode='hsv')
             d = .5
             Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
-            touch.ud['line'] = Line(points=(touch.x, touch.y))
+            if self.wline == 1:
+                touch.ud['line'] = Line(points=(touch.x, touch.y))
+            else:
+                touch.ud['line'] = Line(points=(touch.x, touch.y), width=(self.wline))
 
     def on_touch_move(self, touch):
         touch.ud['line'].points += [touch.x, touch.y]
-
 
 class FirstWindow(Screen):
     pass
@@ -68,7 +78,21 @@ class SecondWindow(Screen):
         with self.title_label.canvas.before:  
             background_color= 1,1,1,1,          
             Color(rgba=background_color)
-            Rectangle(pos=self.title_label.pos, size=self.title_label.size)        
+            Rectangle(pos=self.title_label.pos, size=self.title_label.size)    
+        ## Size button
+        ### More Size
+        self.more_size = Button(text="Aumentar",
+                    pos_hint={"center_x": .25, "center_y": .95},
+                    size_hint = (.1,.068)
+                )
+        self.more_size.bind(on_press=self.more_line)
+        ### Less Size
+        self.less_size = Button(text="Disminuir",
+                    pos_hint={"center_x": .75, "center_y": .95},
+                    size_hint = (.1,.068)
+                )
+        self.less_size.bind(on_press=self.less_line)
+        ## End Size button
         ## BTN Clean
         self.clearbtn = Button(text="Limpiar",
             pos_hint={"center_x": .90, "center_y": .20},
@@ -126,6 +150,14 @@ class SecondWindow(Screen):
         self.add_widget(self.painter)
         self.add_widget(self.show_b)
         self.add_widget(self.title_label)
+        self.add_widget(self.more_size)
+        self.add_widget(self.less_size)
+
+    def more_line(self, obj):
+        self.painter.set_line()
+
+    def less_line(self, obj):
+        self.painter.set_d_line()
 
     def hidden_bs(self, obj):
         ## Buttons

@@ -92,7 +92,7 @@ class FirstWindow(Screen):
         if value:
             ## FullScreen
             #Window.fullscreen = True
-            Window.fullscreen = value
+            Window.fullscreen = 'auto'
         else:
             ## FullScreen
             Window.fullscreen = False

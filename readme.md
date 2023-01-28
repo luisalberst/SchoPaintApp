@@ -1,6 +1,5 @@
 # Scho-Paint-App
-> Version v0.0.2-alpha <br />
-MIT LICENSE <br />
+> Version v0.0.2-beta <br />
 <br />
 <b>Application created for educational purposes as a software exercise</b>
 
@@ -8,7 +7,9 @@ MIT LICENSE <br />
 ### Requeriments
 - Python <= 3.10.9
 - Kivy
-- Buildozer (For Android Debug-Production deploy)
+#### Create Executable / Android Apk
+- Buildozer (For Android build)
+- Pyinstaller (For Windows build)
 
 ### Installers (How to create own app)
 #### Setup terminal and pip

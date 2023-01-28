@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update startup screen
 - Update default resolution (Available on devices over 2340 x 1080)
 
+## [0.0.2b] - 2023-01-28
+### Added
+- Add checkbox label to control `fullscreen` for Windows System
+
+### Changed
+- Update default resolution for windows systems
+- Restructure Folders
+- Merge `main.py with main.kv` on one file
+
 ## [0.0.2a] - 2023-01-26
 ### Added
 - Add Icon Logo

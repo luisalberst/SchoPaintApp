@@ -26,7 +26,7 @@ $ python -m pip install --upgrade pip setuptools virtualenv
 
 #### Virtual environment
 
-1. Create the virtual environment named kivy_env in ur current directory:
+1. Create the virtual environment named `kivy_env` in ur current directory:
 ```bash
 $ python -m virtualenv kivy_venv
 ```
@@ -73,7 +73,7 @@ $ sudo python setup.py install
 ```bash
 $ buildozer init
 ```
-- Wait until install, and edit `buildozer.spec` with basic config: title - package.name - version (method 1)
+- Wait until install, and edit `buildozer.spec` with basic config: `title - package.name - version (method 1)`
 - To create your own apk / app android, run next command
 ```bash
 $ buildozer -v android debug

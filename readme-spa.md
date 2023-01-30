@@ -1,8 +1,8 @@
 # Scho-Paint-Aplicación
 
 > Versión v0.0.2-beta <br />
-<br />
-<b>Aplicación creada con fines educativos como ejercicio de software</b>
+<b> Aplicación creada con fines educativos como ejercicio de software </b> <br />
+<b> Actualmente disponible para el uso de la Técnica de Dibujo Libre </b>
 
 ## INICIO RÁPIDO
 

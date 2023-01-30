@@ -12,18 +12,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Math Exercises Screen
 - Add Math Solve Screen
 - Add Math Complete Screen
+- Add screenshot button to save drawing
 
 ### Changed
 - Update Icon Logo
 - Update startup screen
-- Update default resolution (Available on devices over 2340 x 1080)
 
 ## [0.0.2b] - 2023-01-28
 ### Added
 - Add checkbox label to control `fullscreen` for Windows System
 
 ### Changed
-- Update default resolution for windows systems
+- Update default resolution for android device / windows systems
 - Restructure Folders
 - Merge `main.py with main.kv` on one file
 

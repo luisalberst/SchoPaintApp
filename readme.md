@@ -1,9 +1,9 @@
 # Scho-Paint-App
 
 > Version v0.0.2-beta <br />
-<br />
-<b>Application created for educational purposes as a software exercise</b>
-
+<b> Application created for educational purposes as a software exercise </b> <br />
+<b> Currently available for use in Drawing Technique </b>
+ 
 ## QUICKSTART
 
 ### Requeriments
